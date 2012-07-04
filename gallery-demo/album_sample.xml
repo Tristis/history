@@ -52,4 +52,14 @@
 		<photo_loc>Camping</photo_loc>
 		<thumb_caption>Starfish</thumb_caption>
 	</photo>
+		<photo id="5">
+		<filename>2012-neo.jpg</filename>
+		<geo>
+			<lat>49.2348</lat>
+			<lon>-122.891</lon>
+		</geo>
+		<photo_city>Burnaby, BC</photo_city>
+		<photo_loc>dog park</photo_loc>
+		<thumb_caption>neo</thumb_caption>
+	</photo>
 </album>
