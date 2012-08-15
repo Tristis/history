@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="../inc/css/leaflet.css">
 	<style>
 		#map { height: 400px;}
+		.a {
+			text-decoration: underline;
+		}
 	</style>
 </head>
 <body>
@@ -47,8 +50,10 @@
 			// bind click event to map
 			var onMapClick = function (e) {
 			
-			$('#geo_lat').val(e.mxn.LatLonPoint.lat); /* elements available after AJAX merge */
-			$('#geo_lon').val(e.mxn.LatLonPoint.lon)
+			var location = new mxn.LatLonPoint(); /*** spent a few hours trying to get this to work, tried a bunch of different things couldnt get it */
+			
+			$('#geo_lat').val(e.location.lat); /* elements available after AJAX merge */
+			$('#geo_lon').val(e.location.lon)
 			};
 			
 			$("#map").on('click', onMapClick);
