@@ -43,24 +43,21 @@
 			var apiKey = '40a6c8d43e044fe6b29280aeabbd0a4f';
 			var mapStyleId = '997'; // fresh map style
 			
-							// setup Leaflet tiles
-			var cloudmadeTiles = new mxn.addTileLayer('http://{s}.tile.cloudmade.com/' + apiKey + '/' + mapStyleId + '/256/{z}/{x}/{y}.png', {"subdomains":['a','b','c']});
-			var openstreetmapTiles = new mxn.addTileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-			var mapquestTiles = new mxn.addTileLayer('http://oatile{s}.mqcdn.com/naip/{z}/{x}/{y}.png', {"subdomains":['1','2','3','4'], "maxZoom": 11});
-			
+
 			// bind click event to map
 			var onMapClick = function (e) {
-			$('#geo_lat').val(e.LatLonPoint.lat); /* elements available after AJAX merge */
-			$('#geo_lon').val(e.LatLonPoint.lng)
-			};
-			map.addTileLayer(cloudmadeTiles).on('click', onMapClick);
 			
-			// changes map view to city
+			$('#geo_lat').val(e.mxn.LatLonPoint.lat); /* elements available after AJAX merge */
+			$('#geo_lon').val(e.mxn.LatLonPoint.lon)
+			};
+			
+			$("#map").on('click', onMapClick);
+			
+						// changes map view to city
 			var plotCity = function () {
 			var geoData = $(this).data('geo');
 			map.setCenterAndZoom(new mxn.LatLonPoint(geoData.lat, geoData.lon), 13);
 			};
-			
 			
 			if ($('#geo_lat').val() !== '' && $('#geo_lon').val() !== '') { // load map based on XML fields
 			map.setCenterAndZoom(new mxn.LatLonPoint(parseFloat($('#geo_lat').val()), parseFloat($('#geo_lon').val())), 13);
